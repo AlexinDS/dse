@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="container">
+	<aside>
+		<header>
+			<p id="chatroom">Chatroom {{ chat.id }}</p>
+		</header>
+		<ul>
+		    <li>
+				<img src="https://image.flaticon.com/icons/png/128/3135/3135715.png" alt="">
+				<div>
+					<h2>{{ chat.author }}</h2>
+					<h3>
+						{% if chat.author.is_authenticated %}
+						<span class="status green"></span>
+						online
+						{% else %}
+						<span class="status orange"></span>
+						offline
+						{% endif %}
+					</h3>
+				</div>
+			</li>
+		    {% for user in user.request %}
+			<li>
+				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/chat_avatar_02.jpg" alt="">
+				<div>
+					<h2>{{ user.name }}</h2>
+					<h3>
+						{% if user.is_authenticated %}
+						<span class="status green"></span>
+						online
+						{% else %}
+						<span class="status orange"></span>
+						offline
+						{% endif %}
+					</h3>
+				</div>
+			</li>
+			{% endfor %}
+		</ul>
+	</aside>
+	<main>
+		<header>
+			<div>
+				<h2>{{ chat.title }}</h2>
+				<h3>Already {{ nb_message }} message(s)</h3>
+				<br>
+				<i>{{chat.content}}</i>
+			</div>
+		</header>
+		<ul id="chat">
+		    {% for message in all_message %}
+		        {% if message.author == request.user %}
+		        <li class="me">
+				    <div class="entete">
+				    	<h3>{{ message.date }}</h3>
+				    	<h2>{{ message.author }}</h2>
+				    	<span class="status blue"></span>
+				    </div>
+				    <div class="triangle"></div>
+				    <div class="message">
+					{{ message.content }}
+				    </div>
+			    </li>
+		        {% else %}
+		        <li class="you">
+				    <div class="entete">
+					    <span class="status green"></span>
+					    <h2>{{message.author}}</h2>
+					    <h3>{{message.date}}</h3>
+				    </div>
+				    <div class="triangle"></div>
+				    <div class="message">
+					    {{ message.content }}
+				    </div>
+			    </li>
+		        {% endif %}
+		    {% endfor %}
+		</ul>
+		<footer>
+		{% if user.is_authenticated %}
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Send</button>
+            </form>
+            {% if user.is_authenticated and user == chat.author %}
+            <br><br>
+            <div class="edit"><a href="{% url 'edit_chat' chat.id %}">Edit chatroom</a></div>
+            {% endif %}
+        {% else %}
+            You must be logged in to chat
+        {% endif %}
+		</footer>
+	</main>
+</div>
+{% endblock content %}

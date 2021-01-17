@@ -1,0 +1,26 @@
+.r_post {
+  text-align: center;
+  display: block;
+  padding: 10px 0px 50px 0px;
+  width: 99%;
+  background-color: #b8b8b8;
+  border: 3px solid #ccc;
+  border-radius: 25px;
+}
+
+.edit {
+  text-align: right;
+  margin-right: 25px;
+  text-decoration: none;
+}
+.edit a { color: black; }
+
+#post_title {
+  font-size: 25px;
+  text-align: center;
+}
+
+#post_info {
+  margin-left: 25px;
+  text-align: left;
+}

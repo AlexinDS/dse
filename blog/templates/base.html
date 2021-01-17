@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/blog_chat_home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/blog_read.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/blog_new_edit.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/chat_chat.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        {% if user.is_authenticated %}
+        <div id="menuToggle">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+                <a href="{% url 'blog_home' %}"><li>Blog</li></a>
+                <a href="{% url 'chat_home' %}"><li>Chat</li></a>
+                <a href="{% url 'logout' %}"><li>Logout</li></a>
+                {% if user.is_superuser %}
+                <a href="{% url 'admin:index' %}"><li>Admin</li></a>
+                {% endif %}
+            </ul>
+        </div>
+        {% endif %}
+    </nav>
+    <div class="space">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

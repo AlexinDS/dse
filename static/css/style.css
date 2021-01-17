@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar__logo{
+  filter: invert(1);
+  position: absolute;
+  left: 50px;
+  width: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.navbar__links{
+  position: absolute;
+  opacity: 1;
+  right: 50px;
+  flex-basis: 30%;
+  display: flex;
+  top: 50%;
+  transform: translateY(-50%);
+  list-style-type: none;
+}
+
+.navbar__links a{
+  color: white;
+  font-family: Nunito;
+}
+
+.navbar__links a li{
+  display: flex;
+  align-items: center;
+  height: 70px;
+  padding: 0 40px;
+  transition: 0.2s linear;
+}
+
+.navbar__links a li:hover{
+    background-color: #ffffff;
+    color: black;
+}
+
+.space { padding: 38px;}
+/***************************************************************************************************************/
+
+.post {
+  text-align: center;
+  display: inline-block;
+  padding: 10px 80px 10px;
+  background-color: #f2f2f2;
+  border: 3px solid #ccc;
+}
+
+.new_post {
+  text-align: center;
+  display: inline-block;
+  padding: 10px 0px 10px 0px;
+  width: 97%;
+  background-color: #f2f2f2;
+  border: 3px solid #ccc;
+}
+
+/***************************************************************************************************************/
+.login {
+  padding: 100px 80px;
+  text-align: center;
+}
+
+.login input {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #a8a8a8;
+  transition: 0.5s;
+  outline: none;
+  background-color: #b8b8b8;
+}
+
+.login input:hover { background-color: #a8a8a8;}
+
+.login input:focus {
+  border: 3px solid #cdcdcd;
+}
+
+.login button, .login a {
+  width: 60%;
+  color: black;
+  padding: 10px 20px;
+  height: 50px;
+  font-size: 18px;
+  box-sizing: border-box;
+  border: 3px solid #a8a8a8;
+  background-color: #b8b8b8;
+}
+
+.login label {
+  font-size: 25px;
+}
+
+.read_more a {
+  margin-top: 10px;
+  text-decoration: none;
+  color: white;
+  background-color: black;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.new_post input {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  transition: 0.5s;
+  outline: none;
+}
+
+.new_post select {
+  margin: 10px;
+  padding: 5px;
+  appearance: none;
+  overflow:hidden;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  background-color: white;
+}
+
+.new_post button {
+  width: 10%;
+  height: 50px;
+  font-size: 18px;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+}
+
+.textarea {
+  color: black;
+  padding: 0px 12px 12px 12px;
+  font-size: 14px;
+  resize: none;
+  border: 3px solid #ccc;
+  background-color: white;
+}
+
+.edit {
+  text-align: right;
+  margin-right: 25px;
+  color: black;
+  text-decoration: none;
+}
+
+.r_post {
+  text-align: center;
+  display: inline-block;
+  padding: 10px 0px 10px 0px;
+  width: 99%;
+  background-color: #f2f2f2;
+  border: 3px solid #ccc;
+}
+
+.post_info {
+  margin-left: 25px;
+  text-align: left;
+}
+.r_post p .post_title {
+  font-size: 20px;
+  text-align: center;
+}
+.r_post p {
+  text-align: left;
+  margin-left: 75px;
+}
+
+#add_post {
+  position: fixed;
+  width: 75px;
+  height: 75px;
+  bottom: 50px;
+  right: 30px;
+}
+#add_post img {
+  width: 75px;
+  height: 75px;
+  border-radius: 75px;
+  filter: contrast(2);
+}
+
+
+@media only screen and (max-width: 768px){
+  .navbar__links{ right: 0px;}
+  .navbar__logo{ width: 35px;}
+  .login input { width: 95%;}
+  .login button { width: 100%;}
+  .new_post button { width: 80%;}
+  .textarea { padding: 0px 1px 1px 1px;}
+  .post{
+    padding: 10px;
+    width: 90%;
+  }
+}

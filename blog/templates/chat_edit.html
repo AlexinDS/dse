@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="new_post">
+    {% if user.is_authenticated and user == chat.author %}
+    <h3>Your chat</h3>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="sc">OK</button>
+    </form>
+    <div class="edit"><a href="{% url 'delete_chat' chat.id %}">Delete</a></div>
+    {% else %}
+    Only the author can modify his chat.
+    {% endif %}
+</div>
+{% endblock content %}

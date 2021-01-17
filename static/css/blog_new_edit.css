@@ -1,0 +1,47 @@
+.new_post {
+  text-align: center;
+  display: inline-block;
+  padding: 10px 0px 10px 0px;
+  width: 97%;
+  background-color: #b8b8b8;
+  border: 3px solid #ccc;
+  border-radius: 25px;
+}
+
+.new_post input {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #a8a8a8;
+  transition: 0.5s;
+  outline: none;
+  background-color: #cdcdcd;
+}
+
+.new_post select {
+  margin: 10px;
+  padding: 5px;
+  appearance: none;
+  overflow:hidden;
+  box-sizing: border-box;
+  border: 3px solid #a8a8a8;
+  background-color: #cdcdcd;
+}
+
+.new_post button {
+  width: 11%;
+  height: 50px;
+  font-size: 18px;
+  box-sizing: border-box;
+  border: 3px solid #a8a8a8;
+  background-color: #cdcdcd;
+}
+
+.textarea {
+  color: black;
+  padding: 0px 12px 12px 12px;
+  font-size: 14px;
+  resize: none;
+  border: 3px solid #a8a8a8;
+  background-color: #cdcdcd;
+}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="new_post">
+    {% if user.is_authenticated %}
+    <h3>Your chat</h3>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+    {% else %}
+    You must be logged in to create a chat
+    <br>
+    <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+</div>
+{% endblock content %}

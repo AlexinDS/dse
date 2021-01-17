@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="r_post">
+    {% if user.is_authenticated and user == post.author %}
+    <div class="edit"><a href="{% url 'edit_post' post.id %}">Edit</a></div>
+    {% endif %}
+    <h5 id="post_info">Category : {{ post.category.name }}</h5>
+    <h5 id="post_info">By {{ post.author }}, {{ post.date|date:"DATE_FORMAT" }}</h5><br>
+    <h2 id="post_title">{{ post.title }}</h2><br>
+    <p>{{ post.content|linebreaks }}</p>
+</div>
+{% endblock content %}

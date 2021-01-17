@@ -1,0 +1,14 @@
+<div class="bar"></div>
+
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="article">
+<form action="{% url "contact" %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Envoyer" />
+</form>
+
+{% if envoi %}Votre message a bien été envoyé !{% endif %}
+</div>
+{% endblock content %}

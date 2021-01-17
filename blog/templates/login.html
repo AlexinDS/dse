@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="space"></div>
+<div class="login">
+    <h1>Login</h1>
+    <br>
+    {% if error %}
+        <p><strong>Unknown username or incorrect password.</strong></p>
+    {% endif %}
+    {% if user.is_authenticated %}
+        You are connected {{ user.username }} !!
+    {% else %}
+        <form method="post" action=".">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <button type="submit">Login</button>
+        </form>
+    {% endif %}
+</div>
+{% endblock content %}
